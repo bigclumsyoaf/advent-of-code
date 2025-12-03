@@ -1,8 +1,8 @@
 var day3 = {
   process: function( debug ) {
     document.write("<h2>Day 3 Results</h2>");
-    document.write("<p>Part A - Total: " + day3A.process(debug) + "</p>");
-    document.write("<p>Part B - Total: " + day3B.process(debug) + "</p>");
+    document.write("<p>Part A - Total: " + day3B.process(2,debug) + "</p>");
+    document.write("<p>Part B - Total: " + day3B.process(12, debug) + "</p>");
     document.write("<hr/>");
   }
 }
@@ -41,15 +41,19 @@ var day3A = {
 
 var day3B = {
   sum: 0,
-  process: function( debug ) {
+  process: function( len, debug ) {
     this.sum = 0;
     for ( let i = 0; i < day3input.length; i++ ) {
-      let high = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+      let high = new Array( len );
+      for ( let h = 0; h < high.length; h++ ) {
+        high[h] = 0;
+      }
       let highPos = 0;
       let row = day3input[i];
+      //console.log( "  Finding value for row " + i + ": " + row );
       for ( let h = 0; h < high.length; h++ ) {
         //console.log( "  Finding high for position " + h + " - " + highPos );
-        for ( let c = highPos; c < row.length-(12-h-1); c++ ) {
+        for ( let c = highPos; c < row.length-(len-h-1); c++ ) {
           let val = row.charAt(c)*1;
           //console.log( "    Checking " + val + " against high " + high[h] + " for position " + h );
           if ( val > high[h] ) {
