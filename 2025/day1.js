@@ -2,7 +2,7 @@ var day1 = {
   process: function( debug ) {
 
     document.write("<h2>Day 1 Results</h2>");
-    document.write("<p>Part A - Times passed zero: " + day1A.process(debug) + "</p>");
+    document.write("<p>Part A - Times passed zero: " + day1A.process(false) + "</p>");
     document.write("<p>Part B - Times passed zero: " + day1B.process(debug) + "</p>");
     document.write("<hr/>");
   }
